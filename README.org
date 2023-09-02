@@ -1,0 +1,25 @@
+#+title: MPC Wrapper
+
+* What it Does
+MPC wrapper is an emacs lisp wrapper for several mpc commands. It does not provide a complete interface, just the materials to create one for yourself.
+Here's the function I use.
+#+begin_src emacs-lisp
+  (defun music-menu ()
+    "Play music from a menu."
+    (interactive)
+    (mpc-clear)
+    (mpc-add (completing-read "Choose a song: " (mpc-ls)))
+    (mpc-play))
+#+end_src
+
+It does not currently wrap every command, but it does cover the major ones.
+
+* Requirements
+Have mpc & mpd installed & set up.
+
+* Why another MPD Package?
+Every MPD package that I've seen interface directly with MPD, which, in my opinion, makes them very difficult to set up, & causes Emacs to stop loading if it encounters a problem with MPD.
+On top of this, I have found that most of these packages are either bloated or very difficult to use.
+
+* Credits
+Docstrings taken from mpc's manpage.
