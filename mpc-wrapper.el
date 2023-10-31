@@ -47,11 +47,11 @@
 
 (defun mpc-add (file)
   "Add FILE to the queue. FILE is a string."
-  (start-process "mpc" nil "mpc" "add" file))
+  (shell-command (concat "mpc add " file)))
 
 (defun mpc-insert (file)
   "Add FILE to the queue after the currently playing song. FILE is a string."
-  (start-process "mpc" nil "mpc" "insert" file))
+  (shell-command (concat "mpc insert " file)))
 
 (defun mpc-crop ()
   "Remove all songs except for the currently playing song."
@@ -70,7 +70,7 @@
 
 (defun mpc-del (num)
   "Removes item NUM from the queue."
-   (start-process "mpc" nil "mpc" "del" (number-to-string num)))
+  (shell-command (concat "mpc del " (number-to-string num))))
 
 (defun mpc-shuffle ()
   "Shuffles all songs on the queue."
