@@ -47,7 +47,7 @@
 
 (defun mpc-add (file)
   "Add FILE to the queue. FILE is a string."
-  (shell-command (concat "mpc add " file)))
+  (shell-command (concat "mpc add " "\"" file "\"")))
 
 (defun mpc-insert (file)
   "Add FILE to the queue after the currently playing song. FILE is a string."
